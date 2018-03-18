@@ -1,0 +1,6 @@
+.DS_Store
+.rspec
+.bundle
+vendor/bundle
+**/vendor/bundle
+.ruby-version

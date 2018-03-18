@@ -1,0 +1,21 @@
+* MacOS automation + dotfiles
+
+This repository contain scripts to automate MacOS installation of some default packages, some system settings and dotfiles.
+
+There's no need to install or configure anything upfront! :)
+
+The script is idempotent, so you can run many times you want.
+
+Inspired by https://github.com/atomantic/dotfiles.
+
+** Installation
+
+After cloning, edit [[file:install.sh][install.sh]] to add a [[file:install.sh::#%20hostname="MyAwesomeHostname"][hostname]] and make some [[file:install.sh::#%20Configuration][configurations]].
+Also edit [[file:Brewfile][Brewfile]] and specify which brew / cask packages you want to install.
+
+#+BEGIN_SRC sh
+cd ~/.dotfiles
+./install.sh
+#+END_SRC
+
+That's all :)
