@@ -87,7 +87,7 @@ function do_symlink() {
     ensure_stow_is_installed
 
     for dir in */ ; do
-        if [[ $dir == "sh/" ]]; then
+        if [[ $dir == "sh/" || $dir == "macos/" ]]; then
             continue
         fi
 
