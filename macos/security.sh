@@ -8,8 +8,14 @@
 #   2 = on for essential services
 sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
 
+# Enable firewall logging
+sudo defaults write /Library/Preferences/com.apple.alf loggingenabled -int 1
+
 # Disable remote apple events
 sudo systemsetup -setremoteappleevents off
+
+# Do not show password hints
+sudo defaults write /Library/Preferences/com.apple.loginwindow RetriesUntilHint -int 0
 
 # Disable remote login
 sudo systemsetup -setremotelogin off
