@@ -65,6 +65,7 @@ function macos_tweaks() {
 
 function ensure_stow_is_installed() {
     running "checking if stow is installed"
+
     if brew ls --versions stow > /dev/null; then
         ok
     else
@@ -84,6 +85,8 @@ function init_submodules() {
 }
 
 function do_symlink() {
+    action "symlinking dotfiles"
+
     ensure_stow_is_installed
 
     for dir in */ ; do
@@ -91,14 +94,14 @@ function do_symlink() {
             continue
         fi
 
-        action "creating symlinks for $dir..."
+        running "creating symlinks for $dir..."
         stow --target=$HOME $dir
         ok
     done
 }
 
 function homebrew_cleanup() {
-    running "cleanup homebrew"
+    action "cleanup homebrew"
     brew cleanup > /dev/null 2>&1
     ok
 }
