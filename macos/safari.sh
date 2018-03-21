@@ -67,3 +67,6 @@ defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
 
 # Update extensions automatically
 defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
+
+# Show status bar
+defaults write com.apple.safari ShowOverlayStatusBar -bool true
