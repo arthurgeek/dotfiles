@@ -63,31 +63,31 @@ function macos_tweaks() {
     fi
 }
 
-function ensure_stow_is_installed() {
-    running "checking if stow is installed"
-
-    if brew ls --versions stow > /dev/null; then
-        ok
-    else
-        action "brew install stow"
-        brew install stow > /dev/null
-        if [[ $? != 0 ]]; then
-            error "failed to install stow! aborting..."
-        fi
-        ok
-    fi
-}
-
 function init_submodules() {
   action "initializing submodules"
   git submodule update --init --recursive > /dev/null 2>&1
   ok
 }
 
+function ensure_brew() {
+    running "checking if $1 is installed"
+
+    if brew ls --versions $1 > /dev/null; then
+        ok
+    else
+        action "brew install $1"
+        brew install $1 > /dev/null
+        if [[ $? != 0 ]]; then
+            error "failed to install $1! aborting..."
+        fi
+        ok
+    fi
+}
+
 function do_symlink() {
     action "symlinking dotfiles"
 
-    ensure_stow_is_installed
+    ensure_brew "stow"
 
     for dir in */ ; do
         if [[ $dir == "sh/" || $dir == "macos/" ]]; then
@@ -98,6 +98,31 @@ function do_symlink() {
         stow --target=$HOME $dir
         ok
     done
+}
+
+function ensure_node_is_installed() {
+    running "checking if node is installed"
+
+    if brew ls --versions node > /dev/null; then
+        ok
+    else
+        action "brew install node"
+        brew install node > /dev/null
+        if [[ $? != 0 ]]; then
+            error "failed to install node! aborting..."
+        fi
+        ok
+    fi
+}
+
+npm_global_install() {
+    action "installing node global packages"
+
+    ensure_brew "node"
+
+    cat npm_globals.txt | xargs npm install -g > /dev/null 2>&1
+
+    ok
 }
 
 function homebrew_cleanup() {

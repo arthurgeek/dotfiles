@@ -68,6 +68,9 @@ ensure_homebrew_is_installed
 # install brew (and cask) packages defined in `Brewfile`
 brew_bundle
 
+# install npm global packages defined in npm_globals.txt
+npm_global_install
+
 # ensure zsh from homebrew is the user default shell
 ensure_zsh_is_default_shell
 
