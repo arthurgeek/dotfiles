@@ -12,6 +12,7 @@ brew "tree"
 brew "jq"
 brew "emacs-plus", args: ["--without-spacemacs-icon" "--with-natural-title-bar"]
 brew "vim", args: ["--with-override-system-vi"]
+brew "rustup"
 
 cask "font-source-code-pro"
 cask "1Password"
