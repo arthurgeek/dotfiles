@@ -33,6 +33,7 @@ values."
    '(
      rust
      javascript
+     react
      vimscript
      html
      ;; ----------------------------------------------------------------
@@ -41,7 +42,15 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      helm
-     auto-completion
+     (auto-completion :variables
+                      auto-completion-enable-snippets-in-popup t
+                      ;; tab key to complete as much of common completion as possible
+                      auto-completion-tab-key-behavior 'cycle
+                      ;; automatic docstring display
+                      auto-completion-enable-help-tooltip t
+                      ;; enable the most frequent matches to show first
+                      auto-completion-enable-sort-by-usage t
+                      )
      ;; better-defaults
      emacs-lisp
      git
@@ -60,7 +69,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(add-node-modules-path)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -376,6 +385,17 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
            (file "todos.org")
            "* TODO %?
 SCHEDULED: %t")))
+
+  ;;===== Node setup:
+  ;;  1. Careful of global ($npm -g install <module>) vs. local ./node-modules
+  ;;  2. Best to use local as conflicts between projects might occur
+  ;;  3. See inclusion of "add-node-modules-path" in dotspacemacs-additional-packages
+  ;;  4. https://melpa.org/#/add-node-modules-path
+  ;;
+  ;; stop default linter - use ESLint linter as part of FlyCheck
+  (setq js2-mode-show-parse-errors nil js2-mode-show-strict-warnings nil)
+  (eval-after-load 'js2-mode
+    '(add-hook 'js2-mode-hook #'add-node-modules-path))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -387,7 +407,7 @@ SCHEDULED: %t")))
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode ws-butler winum which-key web-mode volatile-highlights vimrc-mode vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline powerline smeargle slim-mode scss-mode sass-mode reveal-in-osx-finder restart-emacs rainbow-delimiters pug-mode popwin persp-mode pcre2el pbcopy paradox spinner osx-trash osx-dictionary orgit org-present org-pomodoro alert log4e gntp org-plus-contrib org-mime org-download org-bullets open-junk-file neotree move-text mmm-mode markdown-toc markdown-mode magit-gitflow magit-gh-pulls macrostep lorem-ipsum linum-relative link-hint less-css-mode launchctl indent-guide hydra hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile helm-gitignore request helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag haml-mode google-translate golden-ratio gnuplot gitignore-mode github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gist gh marshal logito pcache ht gh-md fuzzy flycheck-pos-tip pos-tip flycheck pkg-info epl flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit magit-popup git-commit ghub let-alist with-editor evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight emmet-mode elisp-slime-nav dumb-jump f s diminish diff-hl dactyl-mode company-web web-completion-data dash company-statistics company column-enforce-mode clean-aindent-mode bind-map bind-key auto-yasnippet yasnippet auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core async ac-ispell auto-complete popup twilight-anti-bright-theme)))
+    (toml-mode racer flycheck-rust cargo rust-mode company-quickhelp add-node-modules-path web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode ws-butler winum which-key web-mode volatile-highlights vimrc-mode vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline powerline smeargle slim-mode scss-mode sass-mode reveal-in-osx-finder restart-emacs rainbow-delimiters pug-mode popwin persp-mode pcre2el pbcopy paradox spinner osx-trash osx-dictionary orgit org-present org-pomodoro alert log4e gntp org-plus-contrib org-mime org-download org-bullets open-junk-file neotree move-text mmm-mode markdown-toc markdown-mode magit-gitflow magit-gh-pulls macrostep lorem-ipsum linum-relative link-hint less-css-mode launchctl indent-guide hydra hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile helm-gitignore request helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag haml-mode google-translate golden-ratio gnuplot gitignore-mode github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gist gh marshal logito pcache ht gh-md fuzzy flycheck-pos-tip pos-tip flycheck pkg-info epl flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit magit-popup git-commit ghub let-alist with-editor evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight emmet-mode elisp-slime-nav dumb-jump f s diminish diff-hl dactyl-mode company-web web-completion-data dash company-statistics company column-enforce-mode clean-aindent-mode bind-map bind-key auto-yasnippet yasnippet auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core async ac-ispell auto-complete popup twilight-anti-bright-theme)))
  '(undo-tree-auto-save-history t)
  '(undo-tree-history-directory-alist (quote (("" . "~/.emacs.d/tmp/")))))
 (custom-set-faces
