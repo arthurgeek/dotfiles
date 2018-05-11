@@ -8,3 +8,8 @@ defaults write NSGlobalDomain AppleMetricUnits -bool $apple_metric_units
 
 # Set the timezone; see `sudo systemsetup -listtimezones` for other values
 sudo systemsetup -settimezone $timezone > /dev/null
+
+# Set digits separators
+defaults write NSGlobalDomain AppleICUNumberSymbols -dict \
+	       0 ',' \
+	       1 '.'
