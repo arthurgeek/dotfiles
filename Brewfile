@@ -1,8 +1,8 @@
 cask_args appdir: "/Applications"
 
 tap "d12frosted/emacs-plus"
-tap "caskroom/cask"
-tap "caskroom/fonts"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
 
 brew "git"
 brew "zsh"
