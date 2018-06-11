@@ -8,3 +8,13 @@ defaults write com.apple.terminal FocusFollowsMouse -bool true
 # Enable Secure Keyboard Entry in Terminal.app
 # See: https://security.stackexchange.com/a/47786/8918
 defaults write com.apple.terminal SecureKeyboardEntry -bool true
+
+# Default Profile
+defaults write com.apple.Terminal "Default Window Settings" -string "Pro"
+defaults write com.apple.Terminal "Startup Window Settings" -string "Pro"
+
+# Anti alias
+defaults write com.apple.Terminal FontAntialias 1
+
+# Close terminal tab if shell exit cleanly
+defaults write com.apple.Terminal ShellExitAction 1
