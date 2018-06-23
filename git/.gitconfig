@@ -11,7 +11,7 @@
   pager = less -RFX
 
   # Use custom `.gitignore` and `.gitattributes`
-  excludesfile = /Users/arthurgeek/.gitignore
+  excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
 
   # Treat spaces before tabs and all kinds of trailing whitespace as an error
