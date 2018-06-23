@@ -71,3 +71,5 @@
 [rerere]
   # enable rerere
   enabled = 1
+[github]
+	user = arthurgeek
