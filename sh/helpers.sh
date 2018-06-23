@@ -95,7 +95,7 @@ function do_symlink() {
         fi
 
         running "creating symlinks for $dir..."
-        stow --target=$HOME $dir
+        stow --ignore='.DS_Store'  --target=$HOME $dir
         ok
     done
 }
