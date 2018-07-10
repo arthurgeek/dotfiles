@@ -342,11 +342,11 @@ you should place your code here."
   (add-hook 'text-mode-hook 'turn-on-orgstruct)
 
   (setq org-directory "~/Documents/org/")
+  (setq org-agenda-files '("~/Documents/org/agenda/"))
 
   (setq org-todo-keywords
         '((sequence "TODO" "IN-PROGRESS" "WAITING" "|" "DONE" "CANCELED")))
 
-  (setq org-agenda-files '("~/Documents/org/"))
   (setq org-log-done (quote time))
   (setq org-log-redeadline (quote time))
   (setq org-log-reschedule (quote time))
