@@ -342,6 +342,8 @@ you should place your code here."
   (add-hook 'text-mode-hook 'turn-on-orgstruct)
 
   (setq org-directory "~/Documents/org/")
+  (setq org-archive-location "~/Documents/org/archive/%s::")
+
   (setq org-agenda-files '("~/Documents/org/agenda/"))
 
   (setq org-todo-keywords
