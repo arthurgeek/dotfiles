@@ -346,6 +346,9 @@ you should place your code here."
 
   (setq org-agenda-files '("~/Documents/org/agenda/"))
 
+  (advice-add 'org-archive-done-tasks :after 'org-save-all-org-buffers)
+  (advice-add 'org-refile :after 'org-save-all-org-buffers)
+
   (setq org-todo-keywords
         '((sequence "TODO" "IN-PROGRESS" "WAITING" "|" "DONE" "CANCELED")))
 
