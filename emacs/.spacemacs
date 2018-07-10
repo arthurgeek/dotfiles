@@ -382,6 +382,9 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
                       (org-agenda-overriding-header "ALL normal priority tasks:"))))
            ((org-agenda-compact-blocks t)))))
 
+  (setq org-refile-targets (quote ((nil :maxlevel . 9)
+                                   (org-agenda-files :maxlevel . 9))))
+
   (setq org-capture-templates
         '(("t" "My TODO task format." entry
            (file "todos.org")
