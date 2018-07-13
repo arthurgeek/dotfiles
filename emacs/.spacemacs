@@ -393,6 +393,8 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
     (let (org-log-done org-log-states)   ; turn off logging
       (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
 
+  (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
+
   (setq org-agenda-custom-commands
         '(("d" "Daily agenda and all TODOs"
            ((tags "PRIORITY=\"A\""
