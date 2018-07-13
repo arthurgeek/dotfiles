@@ -351,7 +351,13 @@ you should place your code here."
   (advice-add 'org-refile :after 'org-save-all-org-buffers)
 
   (setq org-todo-keywords
-        '((sequence "TODO" "IN-PROGRESS" "WAITING" "|" "DONE" "CANCELED")))
+        '((sequence "TODO(t)"
+                    "IN-PROGRESS(i)"
+                    "WAITING(w)"
+                    "SOMEDAY(s)"
+                    "|"
+                    "DONE(d)"
+                    "CANCELED(c)")))
 
   (setq org-log-done (quote time))
   (setq org-log-redeadline (quote time))
