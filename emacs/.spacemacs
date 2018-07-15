@@ -509,9 +509,24 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
   (setq org-modules '(org-docview org-habit))
 
   (setq org-capture-templates
-        '(("t" "My TODO task format." entry
+        '(("t" "A new TODO entry." entry
            (file "todos.org")
-           "* TODO %?")))
+           "* TODO %^{Description}
+%?
+:LOGBOOK:
+- Added: %U
+:END:")
+          ("n" "A new note." entry
+           (file "notes.org")
+           "* %^{Description}
+%?
+:PROPERTIES:
+:CUSTOM_ID: %(az/org/--select-custom-id)
+:END:
+:LOGBOOK:
+- Added: %U
+:END:")))
+
 
   ;;===== Node setup:
   ;;  1. Careful of global ($npm -g install <module>) vs. local ./node-modules
