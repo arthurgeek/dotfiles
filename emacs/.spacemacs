@@ -352,16 +352,17 @@ you should place your code here."
 
   (setq org-todo-keywords
         '((sequence "TODO(t)"
-                    "IN-PROGRESS(i)"
-                    "WAITING(w)"
+                    "IN-PROGRESS(i!)"
+                    "WAITING(w@/!)"
                     "SOMEDAY(s)"
                     "|"
-                    "DONE(d)"
-                    "CANCELED(c)")))
+                    "DONE(d!)"
+                    "CANCELED(c@)")))
 
-  (setq org-log-done (quote time))
-  (setq org-log-redeadline (quote time))
-  (setq org-log-reschedule (quote time))
+  ;; log time for redeadline
+  (setq org-log-redeadline 'time)
+  ;; log time for reschedule
+  (setq org-log-reschedule 'time)
 
   (defun org-archive-done-tasks ()
     (interactive)
