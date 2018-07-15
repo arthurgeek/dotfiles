@@ -445,6 +445,10 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
                                (org-refile-cache-clear)
                                (org-refile-get-targets)))
 
+  ;; load org-habit module
+  ;; and remove some default modules I don't care
+  (setq org-modules '(org-docview org-habit))
+
   (setq org-capture-templates
         '(("t" "My TODO task format." entry
            (file "todos.org")
