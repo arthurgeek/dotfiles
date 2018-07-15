@@ -380,7 +380,7 @@ you should place your code here."
        (setq org-map-continue-from (outline-previous-heading)))
      "/CANCELED" 'tree))
 
-  (defun air-org-skip-subtree-if-priority (priority)
+  (defun az/org/--skip-subtree-if-priority (priority)
     "Skip an agenda subtree if it has a priority of PRIORITY.
 
 PRIORITY may be one of the characters ?A, ?B, or ?C."
@@ -391,7 +391,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
           subtree-end
         nil)))
 
-  (defun air-org-skip-subtree-if-habit ()
+  (defun az/org/--skip-subtree-if-habit ()
     "Skip an agenda entry if it has a STYLE property equal to \"habit\"."
     (let ((subtree-end (save-excursion (org-end-of-subtree t))))
       (if (string= (org-entry-get nil "STYLE") "habit")
@@ -412,8 +412,8 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
                    (org-agenda-overriding-header "High-priority unfinished tasks:")))
             (agenda "" ((org-agenda-ndays 1)))
             (alltodo ""
-                     ((org-agenda-skip-function '(or (air-org-skip-subtree-if-habit)
-                                                     (air-org-skip-subtree-if-priority ?A)
+                     ((org-agenda-skip-function '(or (az/org/--skip-subtree-if-habit)
+                                                     (az/org/--skip-subtree-if-priority ?A)
                                                      (org-agenda-skip-if nil '(scheduled deadline))))
                       (org-agenda-overriding-header "ALL normal priority tasks:"))))
            ((org-agenda-compact-blocks t)))))
