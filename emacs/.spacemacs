@@ -415,7 +415,17 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
                       (org-agenda-overriding-header "ALL normal priority tasks:"))))
            ((org-agenda-compact-blocks t)))))
 
-  (setq org-refile-targets (quote ((nil :maxlevel . 9)
+  (defun az/org/opened-buffer-files ()
+    "Return the list of files currently opened in emacs"
+    (delq nil
+          (mapcar (lambda (x)
+                    (if (and (buffer-file-name x)
+                             (string-match "\\.org$"
+                                           (buffer-file-name x)))
+                        (buffer-file-name x)))
+                  (buffer-list))))
+
+  (setq org-refile-targets (quote ((az/org/opened-buffer-files :maxlevel . 9)
                                    (org-agenda-files :maxlevel . 9))))
 
   (setq org-capture-templates
