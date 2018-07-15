@@ -432,13 +432,18 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
           (org-narrow-to-element)
           (org-reveal)))))
 
-  (defun org-goto-custom-id ()
-    "Go to the location of a custom ID read interactively"
-    (interactive)
+  (defun az/org/--select-custom-id ()
+    "Prompt the user to select a Custom ID"
     (let* ((all-custom-ids (az/org/--global-custom-ids))
-           (custom-id (completing-read
-                       "Custom ID: "
-                       all-custom-ids)))
+          (custom-id (completing-read
+                      "Custom ID: "
+                      all-custom-ids)))
+      custom-id))
+
+  (defun org-goto-custom-id ()
+    (interactive)
+    "Go to the location of a custom ID read interactively"
+    (let* ((custom-id (az/org/--select-custom-id)))
       (az/org/--open-custom-id custom-id)))
 
   (defun org-todo-list-current-file (&optional arg)
