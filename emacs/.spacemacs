@@ -438,6 +438,13 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
     (interactive)
     (org-refile '(4)))
 
+  (setq org-refile-use-cache t)
+
+  ;; invalidate org-refile cache every time emacs has been idle for 5 mins
+  (run-with-idle-timer 300 t (lambda ()
+                               (org-refile-cache-clear)
+                               (org-refile-get-targets)))
+
   (setq org-capture-templates
         '(("t" "My TODO task format." entry
            (file "todos.org")
