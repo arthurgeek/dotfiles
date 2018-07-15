@@ -421,8 +421,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
   (setq org-capture-templates
         '(("t" "My TODO task format." entry
            (file "todos.org")
-           "* TODO %?
-SCHEDULED: %t")))
+           "* TODO %?")))
 
   ;;===== Node setup:
   ;;  1. Careful of global ($npm -g install <module>) vs. local ./node-modules
