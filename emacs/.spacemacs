@@ -512,20 +512,34 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
         '(("t" "A new TODO entry." entry
            (file "todos.org")
            "* TODO %^{Description}
-%?
-:LOGBOOK:
-- Added: %U
-:END:")
+  %?
+  :LOGBOOK:
+  - Added: %U
+  :END:")
           ("n" "A new note." entry
            (file "notes.org")
            "* %^{Description}
-%?
-:PROPERTIES:
-:CUSTOM_ID: %(az/org/--select-custom-id)
-:END:
-:LOGBOOK:
-- Added: %U
-:END:")))
+  %?
+  :PROPERTIES:
+  :CUSTOM_ID: %(az/org/--select-custom-id)
+  :END:
+  :LOGBOOK:
+  - Added: %U
+  :END:")
+        ("b" "Book for the reading list." entry
+         (file+headline "todos.org" "Books")
+         "* SOMEDAY %^{Author} - %^{Title}
+  Recommended by: %^{recommended by}
+  :PROPERTIES:
+  :GENRE: %^{Genre}
+  :END:
+  :LOGBOOK:
+  - Added: %U
+  :END:")
+        ("j" "Journal entry." entry
+         (file+olp+datetree "journal.org")
+         "* %U - %^{Headline}
+  %?")))
 
   (add-hook 'org-capture-mode-hook 'evil-insert-state)
 
