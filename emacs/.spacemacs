@@ -398,6 +398,49 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
           subtree-end
         nil)))
 
+  (defun az/org/--global-custom-ids ()
+    "Find custom ID fields in all org agenda files."
+    (let ((files (org-agenda-files))
+          file
+          az-all-org-custom-ids)
+      (while (setq file (pop files))
+        (with-current-buffer (org-get-agenda-file-buffer file)
+          (save-excursion
+            (save-restriction
+              (widen)
+              (goto-char (point-min))
+              (while (re-search-forward "^[ \t]*:CUSTOM_ID:[ \t]+\\(\\S-+\\)[ \t]*$"
+                                        nil t)
+                (add-to-list 'az-all-org-custom-ids
+                             `(,(match-string-no-properties 1)
+                               ,(concat file ":" (number-to-string (line-number-at-pos))))))))))
+      az-all-org-custom-ids))
+
+  (defun az/org/--open-custom-id (custom-id)
+    "Return the location of CUSTOM-ID."
+    (let* ((all-custom-ids (az/org/--global-custom-ids)))
+      (let* ((val (cadr (assoc custom-id all-custom-ids)))
+             (id-parts (split-string val ":"))
+             (file (car id-parts))
+             (line (string-to-number (cadr id-parts))))
+        (with-current-buffer (org-get-agenda-file-buffer file)
+          (goto-char (point-min))
+          (forward-line line)
+          (org-reveal)
+          (org-up-element)
+          (pop-to-buffer (current-buffer))
+          (org-narrow-to-element)
+          (org-reveal)))))
+
+  (defun org-goto-custom-id ()
+    "Go to the location of a custom ID read interactively"
+    (interactive)
+    (let* ((all-custom-ids (az/org/--global-custom-ids))
+           (custom-id (completing-read
+                       "Custom ID: "
+                       all-custom-ids)))
+      (az/org/--open-custom-id custom-id)))
+
   (defun org-summary-todo (n-done n-not-done)
     "Switch entry to DONE when all subentries are done, to TODO otherwise."
     (let (org-log-done org-log-states)   ; turn off logging
