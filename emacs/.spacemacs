@@ -364,6 +364,9 @@ you should place your code here."
   ;; log time for reschedule
   (setq org-log-reschedule 'time)
 
+  ;; log info into drawer
+  (setq org-log-into-drawer t)
+
   (defun org-archive-done-tasks ()
     (interactive)
     (org-map-entries
