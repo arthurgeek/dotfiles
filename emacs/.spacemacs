@@ -428,6 +428,12 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
   (setq org-refile-targets (quote ((az/org/opened-buffer-files :maxlevel . 9)
                                    (org-agenda-files :maxlevel . 9))))
 
+  ;; append filename in the refile outline
+  (setq org-refile-use-outline-path 'file)
+  ;; makes org-refile outline working with helm/ivy
+  (setq org-outline-path-complete-in-steps nil)
+  (setq org-refile-allow-creating-parent-nodes 'confirm)
+
   (setq org-capture-templates
         '(("t" "My TODO task format." entry
            (file "todos.org")
