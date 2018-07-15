@@ -434,6 +434,10 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
   (setq org-outline-path-complete-in-steps nil)
   (setq org-refile-allow-creating-parent-nodes 'confirm)
 
+  (defun org-search ()
+    (interactive)
+    (org-refile '(4)))
+
   (setq org-capture-templates
         '(("t" "My TODO task format." entry
            (file "todos.org")
