@@ -527,6 +527,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 - Added: %U
 :END:")))
 
+  (add-hook 'org-capture-mode-hook 'evil-insert-state)
 
   ;;===== Node setup:
   ;;  1. Careful of global ($npm -g install <module>) vs. local ./node-modules
