@@ -505,6 +505,8 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
   (setq org-outline-path-complete-in-steps nil)
   (setq org-refile-allow-creating-parent-nodes 'confirm)
 
+  (setq org-ellipsis "⤵")
+
   (defun org-search ()
     (interactive)
     (org-refile '(4)))
