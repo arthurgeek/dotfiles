@@ -495,8 +495,9 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
                         (buffer-file-name x)))
                   (buffer-list))))
 
-  (setq org-refile-targets (quote ((az/org/opened-buffer-files :maxlevel . 9)
-                                   (org-agenda-files :maxlevel . 9))))
+  (setq org-refile-targets (quote ((az/org/opened-buffer-files :maxlevel . 3)
+                                   (org-agenda-files :maxlevel . 3)
+                                   ("someday.org" :maxlevel . 3))))
 
   ;; append filename in the refile outline
   (setq org-refile-use-outline-path 'file)
