@@ -345,7 +345,18 @@ you should place your code here."
   (setq org-directory "~/Documents/org/")
   (setq org-archive-location "archive/%s::")
 
-  (setq org-agenda-files '("~/Documents/org/agenda/"))
+  (setq org-agenda-files (list "inbox.org"
+                               "planner.org"
+                               "wplanner.org"
+                               "journal.org"
+                               "wjournal.org"
+                               "notes.org"
+                               "wnotes.org"))
+
+  ;; when searching across org files, include those
+  (setq org-agenda-text-search-extra-files
+        (list "someday.org"
+              "books.org"))
 
   (advice-add 'org-archive-done-tasks :after 'org-save-all-org-buffers)
   (advice-add 'org-refile :after 'org-save-all-org-buffers)
