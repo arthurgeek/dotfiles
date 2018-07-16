@@ -522,15 +522,30 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
   ;; and remove some default modules I don't care
   (setq org-modules '(org-docview org-habit))
 
+  (setq az/org/capture-template-journal
+        "* %U - %^{Headline}
+  %?")
+
   (setq org-capture-templates
         '(("t" "A new TODO entry." entry
-           (file "todos.org")
+           (file "inbox.org")
            "* TODO %^{Description}
   %?
   :LOGBOOK:
   - Added: %U
   :END:")
-          ("n" "A new note." entry
+          ("b" "Book for the reading list." entry
+           (file "books.org")
+           "* SOMEDAY %^{Author} - %^{Title}
+  :PROPERTIES:
+  :GENRE: %^{Genre}
+  :END:
+  Recommended by: %^{recommended by}
+  :LOGBOOK:
+  - Added: %U
+  :END:")
+          ("p" "Private Templates")
+          ("pn" "A new note." entry
            (file "notes.org")
            "* %^{Description}
   :PROPERTIES:
@@ -544,16 +559,15 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
          (file+headline "todos.org" "Books")
          "* SOMEDAY %^{Author} - %^{Title}
   :PROPERTIES:
-  :GENRE: %^{Genre}
+  :CUSTOM_ID: %(az/org/--select-custom-id)
   :END:
   Recommended by: %^{recommended by}
   :LOGBOOK:
   - Added: %U
   :END:")
-        ("j" "Journal entry." entry
-         (file+olp+datetree "journal.org")
-         "* %U - %^{Headline}
-  %?")))
+          ("wj" "Journal entry." entry
+           (file+olp+datetree "wjournal.org")
+           az/org/capture-template-journal)))
 
   (add-hook 'org-capture-mode-hook 'evil-insert-state)
 
