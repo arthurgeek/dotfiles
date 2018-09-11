@@ -1,3 +1,4 @@
 tern
 js-beautify
 eslint
+vmd

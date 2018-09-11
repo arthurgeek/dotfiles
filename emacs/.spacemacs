@@ -57,7 +57,8 @@ values."
      emacs-lisp
      git
      github
-     markdown
+     (markdown :variables
+               markdown-live-preview-engine 'vmd)
      (org :variables
           org-enable-github-support t)
      osx
