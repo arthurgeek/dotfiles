@@ -13,6 +13,7 @@ brew "tree"
 brew "jq"
 brew "emacs-plus", args: ["--without-spacemacs-icon" "--with-natural-title-bar"]
 brew "vim", args: ["--with-override-system-vi"]
+brew "go", args: ["--cross-compile-common"]
 brew "rustup"
 
 cask "font-source-code-pro"
