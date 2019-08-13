@@ -64,7 +64,8 @@ This function should only modify configuration layer settings."
      git
      github
      (markdown :variables
-               markdown-live-preview-engine 'vmd)
+               markdown-live-preview-engine 'vmd
+               markdown-command "multimarkdown")
      multiple-cursors
      (org :variables
           org-enable-github-support t
