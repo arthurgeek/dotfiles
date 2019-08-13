@@ -15,6 +15,7 @@ brew "emacs-plus", args: ["--without-spacemacs-icon" "--with-natural-title-bar"]
 brew "vim", args: ["--with-override-system-vi"]
 brew "go", args: ["--cross-compile-common"]
 brew "rustup"
+brew "multimarkdown"
 
 cask "font-source-code-pro"
 cask "1Password"
