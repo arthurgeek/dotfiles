@@ -67,7 +67,8 @@ This function should only modify configuration layer settings."
                markdown-live-preview-engine 'vmd)
      multiple-cursors
      (org :variables
-          org-enable-github-support t)
+          org-enable-github-support t
+          org-want-todo-bindings t)
      osx
      ;; (shell :variables
      ;;        shell-default-height 30
