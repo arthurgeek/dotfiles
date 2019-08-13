@@ -488,6 +488,7 @@ you should place your code here."
   ;; Activate column indicator in prog-mode and text-mode
   (add-hook 'prog-mode-hook 'turn-on-fci-mode)
   (add-hook 'text-mode-hook 'turn-on-fci-mode)
+  (setq-default fill-column 80)
 
   ;; scrolling
   (setq scroll-step 3)
@@ -496,6 +497,10 @@ you should place your code here."
   ;; Org config
 
   ;;(add-hook 'text-mode-hook 'turn-on-orgstruct)
+
+  ;; automatically break new lines at column 80 for org files
+  (add-hook 'org-mode-hook '(lambda () (setq fill-column 80)))
+  (add-hook 'org-mode-hook 'auto-fill-mode)
 
   (setq org-directory "~/Documents/org/")
   (setq org-archive-location "archive/%s::")
