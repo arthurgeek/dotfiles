@@ -731,6 +731,10 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
   (add-hook 'org-capture-mode-hook 'evil-insert-state)
 
+  ;; natural title bar
+  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+  (add-to-list 'default-frame-alist '(ns-appearance . dark))
+
   ;;===== Node setup:
   ;;  1. Careful of global ($npm -g install <module>) vs. local ./node-modules
   ;;  2. Best to use local as conflicts between projects might occur
