@@ -1,6 +1,5 @@
 cask_args appdir: "/Applications"
 
-tap "d12frosted/emacs-plus"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-drivers"
@@ -11,12 +10,12 @@ brew "ag"
 brew "ruby"
 brew "tree"
 brew "jq"
-brew "emacs-plus", args: ["--without-spacemacs-icon" "--with-natural-title-bar"]
 brew "vim", args: ["--with-override-system-vi"]
 brew "go", args: ["--cross-compile-common"]
 brew "rustup"
 brew "multimarkdown"
 
+cask "emacs"
 cask "font-source-code-pro"
 cask "1Password"
 cask "google-chrome"
