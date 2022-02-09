@@ -73,3 +73,5 @@
   enabled = 1
 [github]
 	user = arthurgeek
+[init]
+	defaultBranch = main
