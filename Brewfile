@@ -14,17 +14,11 @@ brew "jq"
 brew "vim", args: ["--with-override-system-vi"]
 brew "go", args: ["--cross-compile-common"]
 brew "rustup"
-brew "multimarkdown"
 
 cask "emacs-plus@28"
 cask "font-source-code-pro"
-cask "1Password"
+cask "bitwarden"
 cask "google-chrome"
-cask "firefox"
-cask "slack"
-cask "kindle"
 cask "spotify"
-cask "basictex"
-cask "synology-drive"
 cask "docker"
 cask "finicky"
