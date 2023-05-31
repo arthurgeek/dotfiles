@@ -14,8 +14,8 @@ set -o pipefail
 __script_dir="$(cd "$(dirname "${BASH_SOURCE[${__b3bp_tmp_source_idx:-0}]}")" && pwd)"
 
 # Configuration
-# hostname="MyAwesomeHostname"
-trackpad=false # there is a trackpad in this computer?
+hostname="Zion"
+trackpad=true # there is a trackpad in this computer?
 apple_language="en" # system language
 
 # Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
@@ -23,9 +23,9 @@ apple_language="en" # system language
 apple_locale="en_GB@currency=EUR"
 apple_measurement_units="Centimeters"
 apple_metric_units=true
-timezone="Europe/Berlin"
+timezone="Europe/Madrid"
 
-non_apple_lcd=false # there is a non-apple LCD attached to this computer?
+non_apple_lcd=true # there is a non-apple LCD attached to this computer?
 
 # Hot Corners
 # Possible values:
@@ -69,7 +69,7 @@ ensure_homebrew_is_installed
 brew_bundle
 
 # install npm global packages defined in npm_globals.txt
-npm_global_install
+# npm_global_install
 
 # ensure zsh from homebrew is the user default shell
 ensure_zsh_is_default_shell

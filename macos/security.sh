@@ -6,13 +6,13 @@
 #   0 = off
 #   1 = on for specific sevices
 #   2 = on for essential services
-sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
 
 # Enable firewall logging
-sudo defaults write /Library/Preferences/com.apple.alf loggingenabled -int 1
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setloggingmode on
 
-# Disable remote apple events
-sudo systemsetup -setremoteappleevents off
+# Enable stealth mode
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setstealthmode on
 
 # Do not show password hints
 sudo defaults write /Library/Preferences/com.apple.loginwindow RetriesUntilHint -int 0

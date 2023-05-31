@@ -9,14 +9,17 @@ function ask_admin_password() {
 function ensure_homebrew_is_installed() {
     running "checking homebrew install"
 
-    brew_bin=$(which brew) 2>&1 > /dev/null
-    if [[ $? != 0 ]]; then
+    if [[ $(command -v brew) == "" ]]; then
         action "installing homebrew"
-        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
         if [[ $? != 0 ]]; then
             error "unable to install homebrew, script $0 abort!"
             exit 2
         fi
+
+        action "adding homebrew to your path"
+        eval "$(/opt/homebrew/bin/brew shellenv)"
     else
         ok
         # Make sure we’re using the latest Homebrew
@@ -47,8 +50,8 @@ function ensure_zsh_is_default_shell() {
     running "checking if zsh is the current shell"
     CURRENTSHELL=$(dscl . -read /Users/$USER UserShell | awk '{print $2}')
     if [[ "$CURRENTSHELL" != "/usr/local/bin/zsh" ]]; then
-        action "setting newer homebrew zsh (/usr/local/bin/zsh) as your shell"
-        sudo dscl . -change /Users/$USER UserShell $SHELL /usr/local/bin/zsh > /dev/null 2>&1
+        action "setting newer homebrew zsh (/opt/homebrew/bin/zsh) as your shell"
+        sudo dscl . -create /Users/$USER UserShell /opt/homebrew/bin/zsh > /dev/null 2>&1
     fi
     ok
 }

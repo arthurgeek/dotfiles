@@ -11,11 +11,9 @@ brew "ag"
 brew "ruby"
 brew "tree"
 brew "jq"
-brew "vim", args: ["--with-override-system-vi"]
-brew "go", args: ["--cross-compile-common"]
-brew "rustup"
+brew "vim"
+brew "emacs-plus@29"
 
-cask "emacs-plus@28"
 cask "font-source-code-pro"
 cask "bitwarden"
 cask "google-chrome"
@@ -23,3 +21,4 @@ cask "spotify"
 cask "docker"
 cask "finicky"
 cask "raycast"
+cask "visual-studio-code"
