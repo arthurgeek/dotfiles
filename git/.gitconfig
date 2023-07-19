@@ -36,6 +36,7 @@
   st = status -s -b
   wdiff = diff --word-diff
   slog = log --graph --pretty=format:'%C(yellow)%h%Creset%Cred%d%Creset %s %Cblue[%an] %Cgreen%ad' --abbrev-commit
+  oops = !git add . && git commit --amend --no-edit && git push --force-with-lease
 
 [diff]
   # Detect copies as well as renames
@@ -71,7 +72,9 @@
 [rerere]
   # enable rerere
   enabled = 1
+
 [github]
 	user = arthurgeek
+
 [init]
 	defaultBranch = main
