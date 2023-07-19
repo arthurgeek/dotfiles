@@ -128,7 +128,6 @@ Plug 'bhurlow/vim-parinfer'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'airblade/vim-gitgutter'
 Plug 'thoughtbot/vim-rspec'
-Plug 'valloric/youcompleteme', { 'do': './install.py' }
 Plug 'rust-lang/rust.vim'
 
 " Initialize plugin system
