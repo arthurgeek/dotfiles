@@ -4,3 +4,5 @@
 vendor/bundle
 **/vendor/bundle
 .ruby-version
+.vscode
+todo
