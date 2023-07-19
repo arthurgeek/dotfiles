@@ -1,0 +1,44 @@
+brew "jq"
+brew "gh"
+brew "yq"
+brew "git"
+brew "fish"
+brew "direnv"
+brew "chezmoi"
+brew "exiftool"
+brew "bitwarden-cli"
+brew "the_silver_searcher"
+brew "go-task/tap/go-task"
+
+cask "slack"
+cask "obsidian"
+cask "visual-studio-code"
+cask "homebrew/cask-fonts/font-jetbrains-mono"
+cask "docker", args: { appdir: "/Applications" }
+cask "raycast", args: { appdir: "/Applications" }
+cask "spotify", args: { appdir: "/Applications" }
+cask "bitwarden", args: { appdir: "/Applications" }
+cask "google-chrome", args: { appdir: "/Applications" }
+
+{{ if eq .personal true -}}
+brew "age"
+brew "sops"
+brew "flyctl"
+brew "python@3.11"
+
+cask "discord"
+cask "nordvpn"
+cask "whatsapp-alpha"
+
+# Stuff for home k8s cluster
+brew "helm"
+brew "ansible"
+brew "kyverno"
+brew "terraform"
+brew "kustomize"
+brew "cilium-cli"
+brew "kubernetes-cli"
+brew "fluxcd/tap/flux"
+brew "derailed/k9s/k9s"
+brew "weaveworks/tap/gitops"
+{{- end -}}
