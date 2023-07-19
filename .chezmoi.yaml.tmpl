@@ -1,0 +1,11 @@
+{{- $personal := promptBool "personal" false }}
+{{- $email := "arthurgeek@users.noreply.github.com" }}
+
+{{- if eq $personal false }}
+{{- $email = promptString "email" }}
+{{- end -}}
+
+data:
+  name: "Arthur Zapparoli"
+  email: {{ $email | quote }}
+  personal: {{ $personal }}
