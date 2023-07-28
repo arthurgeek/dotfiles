@@ -1,0 +1,16 @@
+#!{{ lookPath "fish" }}
+
+echo "🐟 Setting up Fish"
+
+# Add fish to list of known shells
+cat /etc/shells | grep -vzq "/opt/homebrew/bin/fish" \
+  && echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
+
+# Set fish as the default shell
+if string match -v '*fish' $SHELL
+  chsh -s /opt/homebrew/bin/fish
+end
+
+# Install fisher
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source \
+  && fisher install jorgebucaran/fisher
