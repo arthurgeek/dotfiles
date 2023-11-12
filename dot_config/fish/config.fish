@@ -9,8 +9,6 @@ direnv hook fish | source
 starship init fish | source
 zoxide init fish | source
 thefuck --alias | source
-
-alias cat="bat --theme Dracula"
-alias f="fuck"
-alias k="kubecolor"
-alias kubectl="kubecolor"
+abbr --global cat "bat --theme Dracula"
+abbr --global f "fuck"
+abbr --global k "kubectl"
