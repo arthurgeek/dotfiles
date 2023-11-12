@@ -9,3 +9,5 @@ jorgebucaran/autopair.fish
 nickeb96/puffer-fish
 wfxr/forgit
 gazorby/fish-exa
+rstacruz/fish-asdf
+evanlucas/fish-kubectl-completions
