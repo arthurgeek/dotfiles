@@ -11,6 +11,7 @@ config.window_decorations = 'INTEGRATED_BUTTONS|RESIZE'
 
 config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
+config.switch_to_last_active_tab_when_closing_tab = true
 config.tab_bar_at_bottom = true
 
 config.window_padding = {
