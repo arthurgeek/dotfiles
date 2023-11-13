@@ -26,10 +26,14 @@ config.keys = {
   {
     key = 'k',
     mods = 'CMD',
-    action = act.Multiple {
-      act.ClearScrollback 'ScrollbackAndViewport',
-    },
+    action = act.ClearScrollback 'ScrollbackAndViewport',
   },
+  {
+    key = '/',
+    mods = 'ALT|CTRL',
+    action = act.SplitVertical { domain = 'CurrentPaneDomain' },
+  },
+}
 }
 
 return config
