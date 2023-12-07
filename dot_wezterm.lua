@@ -3,8 +3,8 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
 config.color_scheme = 'Dracula (Official)'
-config.font = wezterm.font('FiraCode Nerd Font Mono')
-config.font_size = 16.0
+config.font = wezterm.font('FiraCode Nerd Font')
+config.font_size = 18.0
 config.freetype_load_target = 'HorizontalLcd'
 
 config.window_decorations = 'INTEGRATED_BUTTONS|RESIZE'
@@ -15,10 +15,10 @@ config.switch_to_last_active_tab_when_closing_tab = true
 config.tab_bar_at_bottom = true
 
 config.window_padding = {
-  left = '0.5cell',
-  right = '0.5cell',
+  left = '0cell',
+  right = '0cell',
   top = '1.5cell',
-  bottom = '0'
+  bottom = '0cell'
 }
 
 local act = wezterm.action
