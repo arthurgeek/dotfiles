@@ -17,3 +17,7 @@ thefuck --alias | source
 abbr --global cat "bat --theme Dracula"
 abbr --global f "fuck"
 abbr --global k "kubectl"
+
+function kubectl
+  kubecolor $argv
+end
