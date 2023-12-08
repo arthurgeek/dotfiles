@@ -15,10 +15,10 @@ starship init fish | source
 zoxide init fish | source
 thefuck --alias | source
 abbr --global cat "bat --theme Dracula"
-abbr --global f "fuck"
-abbr --global k "kubectl"
-abbr --global vim "nvim"
-abbr --global vi "nvim"
+abbr --global f fuck
+abbr --global k kubectl
+abbr --global vim nvim
+abbr --global vi nvim
 
 function kubectl
   kubecolor $argv
