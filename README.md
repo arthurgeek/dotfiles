@@ -9,7 +9,7 @@ There's no need to install or configure anything upfront!
 Just open your terminal and run:
 
 ```sh
-curl https://raw.githubusercontent.com/arthurgeek/dotfiles/chezmoi/install.sh | bash
+curl https://raw.githubusercontent.com/arthurgeek/dotfiles/main/install.sh | bash
 ```
 
 Then take a moment to treat yourself to a refreshing cup of ☕️.

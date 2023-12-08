@@ -10,7 +10,7 @@ command -v chezmoi >/dev/null 2>&1 || \
   (echo "🏠 Installing chezmoi" && brew install chezmoi)
 
 # Initialize chezmoi
-echo "🚀 Initializing chezmoi" && chezmoi init --branch chezmoi https://github.com/arthurgeek/dotfiles
+echo "🚀 Initializing chezmoi" && chezmoi init https://github.com/arthurgeek/dotfiles
 echo "🪄 Applying dotfiles" && chezmoi apply
 
 echo ""
