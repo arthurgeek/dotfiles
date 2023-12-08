@@ -1,5 +1,6 @@
 set -gx fish_greeting
 set -gx ANSIBLE_FORCE_COLOR true
+set -gx TERM wezterm
 
 # GOLANG configurations
 set -gx GOPATH $HOME/Development/go
