@@ -24,3 +24,7 @@ abbr --global vi nvim
 function kubectl
   kubecolor $argv
 end
+
+function open-dict
+  open "dict://$argv"
+end
