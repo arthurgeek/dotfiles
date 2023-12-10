@@ -8,7 +8,7 @@ set -gx GOROOT /opt/homebrew/opt/go/libexec
 set -gx PATH $GOPATH/bin $GOROOT/bin $PATH
 
 if status is-interactive
-  eval (/opt/homebrew/bin/brew shellenv)
+    eval (/opt/homebrew/bin/brew shellenv)
 end
 
 fish_config theme choose "Catppuccin Mocha"
@@ -22,11 +22,3 @@ abbr --global f fuck
 abbr --global k kubectl
 abbr --global vim nvim
 abbr --global vi nvim
-
-function kubectl
-  kubecolor $argv
-end
-
-function open-dict
-  open "dict://$argv"
-end
