@@ -36,8 +36,8 @@
   # https://git-scm.com/docs/git-update-index#_untracked_cache
   untrackedCache = true
 
-  # Use VSCode as editor
-  editor = code --wait
+  # Use Neovim as editor
+  editor = nvim
 
 [alias]
   co = checkout
@@ -50,11 +50,8 @@
   # Detect copies as well as renames
   renames = copies
 
-  # Use VSCode as diff tool
-  tool = vscode
-
-[difftool "vscode"]
-  cmd = code --wait --diff $LOCAL $REMOTE
+  # Use Neovim as diff tool
+  tool = nvimdiff
 
 [diff "bin"]
   # Use `hexdump` to diff binary files
@@ -71,16 +68,8 @@
   # Include summaries of merged commits in newly created merge commit messages
   log = true
 
-  # Use opendiff as diff tool
-  tool = opendiff
-
-  conflictstyle = diff3
-
-[mergetool "vscode"]
-  cmd = code --wait $MERGED
-
-[mergetool]
-  keepBackup = false
+  # Use Neovim as merge tool
+  tool = nvimdiff
 
 [push]
   # https://git-scm.com/docs/git-config#git-config-pushdefault
