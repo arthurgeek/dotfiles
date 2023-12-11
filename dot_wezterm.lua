@@ -3,7 +3,7 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
 config.color_scheme = 'Catppuccin Mocha'
-config.font = wezterm.font('FiraCode Nerd Font')
+config.font = wezterm.font 'FiraCode Nerd Font'
 config.font_size = 18.0
 config.freetype_load_target = 'HorizontalLcd'
 
@@ -18,7 +18,7 @@ config.window_padding = {
   left = '0cell',
   right = '0cell',
   top = '1.5cell',
-  bottom = '0cell'
+  bottom = '0cell',
 }
 
 local act = wezterm.action
@@ -43,5 +43,9 @@ config.unix_domains = {
 }
 
 config.default_gui_startup_args = { 'connect', 'unix' }
+
+local zen = require 'zen'
+
+zen.apply()
 
 return config
