@@ -1,6 +1,7 @@
 set -gx fish_greeting
 set -gx ANSIBLE_FORCE_COLOR true
 set -gx TERM wezterm
+set -gx EDITOR nvim
 
 # GOLANG configurations
 set -gx GOPATH $HOME/Development/go
