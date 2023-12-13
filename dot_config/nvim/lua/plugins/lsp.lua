@@ -97,6 +97,11 @@ return {
 
   {
     'neovim/nvim-lspconfig',
+    opts = {
+      inlay_hints = {
+        enabled = true,
+      },
+    },
     init = function()
       local keys = require('lazyvim.plugins.lsp.keymaps').get()
       keys[#keys + 1] = { '<leader>ca', '<cmd>Lspsaga code_action<cr>', desc = 'Code Action', mode = { 'n', 'v' } }
