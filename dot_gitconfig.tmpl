@@ -12,8 +12,7 @@
   whitespace = fix
 
 [core]
-  # Change default pager
-  pager = less -RFX
+  pager = delta
 
   # Use custom `.gitignore` and `.gitattributes`
   excludesfile = ~/.gitignore
@@ -39,11 +38,15 @@
   # Use Neovim as editor
   editor = nvim
 
+[format]
+  pretty = %C(yellow)%h%Creset%Cred%d%Creset %s %Cblue[%an] %Cgreen%ar
+
 [alias]
   co = checkout
   st = status -s -b
   wdiff = diff --word-diff
-  slog = log --graph --pretty=format:'%C(yellow)%h%Creset%Cred%d%Creset %s %Cblue[%an] %Cgreen%ad' --abbrev-commit
+  # old habits die hard
+  slog = log 
   oops = !git add . && git commit --amend --no-edit && git push --force-with-lease
 
 [diff]
@@ -52,6 +55,8 @@
 
   # Use Neovim as diff tool
   tool = nvimdiff
+
+  colorMoved = default
 
 [diff "bin"]
   # Use `hexdump` to diff binary files
@@ -71,6 +76,8 @@
   # Use Neovim as merge tool
   tool = nvimdiff
 
+  conflictstyle = diff3
+
 [push]
   # https://git-scm.com/docs/git-config#git-config-pushdefault
   default = simple
@@ -84,3 +91,26 @@
 
 [init]
 	defaultBranch = main
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  features = default side-by-side line-numbers decorations
+
+[delta "default"]
+  syntax-theme = Catppuccin-mocha
+  plus-style = syntax "#003800"
+  minus-style = syntax "#3f0001"
+
+[delta "decorations"]
+  commit-decoration-style = bold yellow box ul
+  file-style = bold yellow ul
+  file-decoration-style = none
+  hunk-header-decoration-style = cyan box ul
+
+[delta "line-numbers"]
+  line-numbers-left-style = cyan
+  line-numbers-right-style = cyan
+  line-numbers-minus-style = 124
+  line-numbers-plus-style = 28
