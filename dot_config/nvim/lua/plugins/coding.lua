@@ -33,4 +33,53 @@ return {
       })
     end,
   },
+
+  {
+    'folke/which-key.nvim',
+    optional = true,
+    opts = {
+      defaults = {
+        ['<leader>cx'] = { name = '+sniprun' },
+      },
+    },
+  },
+
+  {
+    'michaelb/sniprun',
+    build = 'sh install.sh',
+    opts = {
+      repl_enable = { 'JS_TS_deno' },
+    },
+    keys = {
+      {
+        '<leader>cxx',
+        function()
+          require('sniprun').run 'n'
+        end,
+        desc = 'Execute Line',
+      },
+      {
+        '<leader>cxx',
+        function()
+          require('sniprun').run 'v'
+        end,
+        desc = 'Execute Selection',
+        mode = { 'v' },
+      },
+      {
+        '<leader>cxc',
+        function()
+          require('sniprun.display').close_all()
+        end,
+        desc = 'Close',
+      },
+      {
+        '<leader>cxl',
+        function()
+          require('sniprun.live_mode').toggle()
+        end,
+        desc = 'Toggle Live Mode',
+      },
+    },
+  },
 }
