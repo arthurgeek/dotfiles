@@ -1,5 +1,7 @@
 #!{{ lookPath "fish" }}
 
+# dot_Brewfile.tmpl hash: {{ include "dot_Brewfile.tmpl" | sha256sum }}
+
 echo "🍻 Installing brew packages"
 
 brew bundle install --no-lock --global
