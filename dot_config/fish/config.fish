@@ -8,6 +8,9 @@ set -gx GOPATH $HOME/Development/go
 set -gx GOROOT /opt/homebrew/opt/go/libexec
 set -gx PATH $GOPATH/bin $GOROOT/bin $PATH
 
+# LazyGit
+set -gx LG_CONFIG_FILE $HOME/.config/lazygit/config.yml
+
 # EXA plugin config
 set EXA_STANDARD_OPTIONS --group --header --group-directories-first --icons
 set EXA_L_OPTIONS $EXA_STANDARD_OPTIONS
