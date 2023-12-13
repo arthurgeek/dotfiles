@@ -30,8 +30,8 @@ config.keys = {
     action = act.ClearScrollback 'ScrollbackAndViewport',
   },
   {
-    key = '/',
-    mods = 'ALT|CTRL',
+    key = '?',
+    mods = 'CTRL|SHIFT',
     action = act.SplitVertical { domain = 'CurrentPaneDomain' },
   },
 }
