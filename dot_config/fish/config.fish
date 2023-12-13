@@ -24,7 +24,7 @@ starship init fish | source
 zoxide init fish | source
 thefuck --alias | source
 
-abbr --global cat "bat --theme Catppuccin-mocha"
+abbr --global cat bat
 abbr --global f fuck
 abbr --global k kubectl
 abbr --global vim nvim
