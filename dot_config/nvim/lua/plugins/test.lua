@@ -15,6 +15,7 @@ return {
       adapters = {
         ['neotest-vitest'] = {},
         ['neotest-jest'] = {},
+        ['neotest-go'] = {},
       },
       consumers = {
         overseer = require 'neotest.consumers.overseer',
