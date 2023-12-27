@@ -6,8 +6,30 @@ return {
       vim.list_extend(opts.ensure_installed, {
         'luacheck',
         'css-lsp',
+        'buf',
+        'buf-language-server',
       })
     end,
+  },
+
+  {
+    'stevearc/conform.nvim',
+    optional = true,
+    opts = {
+      formatters_by_ft = {
+        proto = { 'buf' },
+      },
+    },
+  },
+
+  {
+    'mfussenegger/nvim-lint',
+    optional = true,
+    opts = {
+      linters_by_ft = {
+        proto = { 'buf_lint' },
+      },
+    },
   },
 
   {
@@ -98,6 +120,9 @@ return {
   {
     'neovim/nvim-lspconfig',
     opts = {
+      servers = {
+        bufls = {},
+      },
       inlay_hints = {
         enabled = true,
       },
