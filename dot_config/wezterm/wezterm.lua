@@ -94,4 +94,13 @@ local zen = require 'zen'
 
 zen.apply()
 
+local mux = wezterm.mux
+
+wezterm.on('gui-attached', function()
+  for _, window in ipairs(mux.all_windows()) do
+    window:gui_window():set_position(77, 127)
+    window:gui_window():set_inner_size(2872, 1756)
+  end
+end)
+
 return config
