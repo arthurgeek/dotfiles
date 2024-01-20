@@ -21,6 +21,9 @@ set fzf_preview_dir_cmd eza $EXA_STANDARD_OPTIONS --all --oneline --color=always
 set fzf_diff_highlighter delta --features="default decorations" --paging=never
 set fzf_directory_opts --bind "ctrl-o:execute($EDITOR {} &> /dev/tty)"
 
+# Kubectl krew
+set -gx PATH $PATH $HOME/.krew/bin
+
 fish_config theme choose "Catppuccin Mocha"
 
 /opt/homebrew/bin/brew shellenv | source
