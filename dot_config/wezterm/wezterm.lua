@@ -57,6 +57,12 @@ config.keys = {
     key = '=',
     action = act.SplitHorizontal { domain = 'CurrentPaneDomain' },
   },
+  -- pane zoom
+  {
+    mods = 'LEADER',
+    key = 'z',
+    action = wezterm.action.TogglePaneZoomState,
+  },
 }
 
 config.unix_domains = {
