@@ -32,6 +32,9 @@ config.window_padding = {
   right = '0cell',
 }
 
+local workspace_switcher = wezterm.plugin.require 'https://github.com/MLFlexer/smart_workspace_switcher.wezterm'
+workspace_switcher.set_zoxide_path '/opt/homebrew/bin/zoxide'
+
 local act = wezterm.action
 
 config.leader = {
@@ -70,6 +73,12 @@ config.keys = {
     action = wezterm.action.PaneSelect {
       mode = 'SwapWithActive',
     },
+  },
+  -- smart workspace switcher
+  {
+    mods = 'LEADER',
+    key = 'Space',
+    action = workspace_switcher.switch_workspace(),
   },
 }
 
