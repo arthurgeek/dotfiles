@@ -8,6 +8,7 @@ return {
         'css-lsp',
         'buf',
         'buf-language-server',
+        'deno',
       })
     end,
   },
