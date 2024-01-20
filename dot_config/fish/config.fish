@@ -24,6 +24,7 @@ direnv hook fish | source
 starship init fish | source
 zoxide init fish | source
 thefuck --alias | source
+chezmoi completion fish | source
 wezterm shell-completion --shell fish | source
 
 abbr --global cat bat
