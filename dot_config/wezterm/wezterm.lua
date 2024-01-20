@@ -2,7 +2,14 @@ local wezterm = require 'wezterm'
 
 local config = wezterm.config_builder()
 
-config.color_scheme = 'Catppuccin Mocha'
+local custom = wezterm.color.get_builtin_schemes()['Catppuccin Mocha']
+custom.tab_bar.background = custom.background
+
+config.color_schemes = {
+  ['Catppuccin Custom'] = custom,
+}
+config.color_scheme = 'Catppuccin Custom'
+
 config.font = wezterm.font 'FiraCode Nerd Font'
 config.font_size = 18.0
 config.freetype_load_target = 'HorizontalLcd'
