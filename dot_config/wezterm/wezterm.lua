@@ -103,4 +103,41 @@ wezterm.on('gui-attached', function()
   end
 end)
 
+local function base_path_name(str)
+  return string.gsub(str, '(.*[/\\])(.*)', '%2')
+end
+
+wezterm.on('update-status', function(window)
+  local palette = window:effective_config().resolved_palette
+
+  local left_divider = wezterm.format {
+    { Background = { Color = palette.ansi[2] } },
+    { Foreground = { Color = palette.background } },
+    { Text = utf8.char(0xe0bc) .. ' ' },
+  }
+
+  local time = wezterm.format {
+    { Attribute = { Intensity = 'Bold' } },
+    { Foreground = { Color = palette.background } },
+    { Background = { Color = palette.ansi[2] } },
+    -- and say hello
+    { Text = utf8.char(0xf43a) .. wezterm.time.now():format ' %H:%M ' },
+  }
+
+  local right_divider = wezterm.format {
+    { Background = { Color = palette.ansi[5] } },
+    { Foreground = { Color = palette.ansi[2] } },
+    { Text = utf8.char(0xe0bc) .. ' ' },
+  }
+
+  local workspace_name = wezterm.format {
+    { Attribute = { Intensity = 'Bold' } },
+    { Foreground = { Color = palette.background } },
+    { Background = { Color = palette.ansi[5] } },
+    { Text = base_path_name(window:active_workspace()) },
+  }
+
+  window:set_right_status(left_divider .. time .. right_divider .. workspace_name)
+end)
+
 return config
