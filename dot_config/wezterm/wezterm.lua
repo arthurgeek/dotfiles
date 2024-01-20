@@ -94,6 +94,9 @@ local zen = require 'zen'
 
 zen.apply()
 
+local smart_splits = wezterm.plugin.require 'https://github.com/mrjones2014/smart-splits.nvim'
+smart_splits.apply_to_config(config)
+
 local mux = wezterm.mux
 
 wezterm.on('gui-attached', function()
