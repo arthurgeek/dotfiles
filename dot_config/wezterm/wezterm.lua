@@ -16,10 +16,14 @@ config.freetype_load_target = 'HorizontalLcd'
 
 config.window_decorations = 'RESIZE'
 
-config.use_fancy_tab_bar = false
-config.hide_tab_bar_if_only_one_tab = true
 config.switch_to_last_active_tab_when_closing_tab = true
-config.tab_bar_at_bottom = true
+
+wezterm.plugin.require('https://github.com/nekowinston/wezterm-bar').apply_to_config(config, {
+  max_width = 48,
+  clock = {
+    enabled = false,
+  },
+})
 
 config.window_padding = {
   top = '0.5cell',
