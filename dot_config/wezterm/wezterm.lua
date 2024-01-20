@@ -63,6 +63,14 @@ config.keys = {
     key = 'z',
     action = wezterm.action.TogglePaneZoomState,
   },
+  -- show the pane selection mode, but have it swap the active and selected panes
+  {
+    mods = 'LEADER',
+    key = '0',
+    action = wezterm.action.PaneSelect {
+      mode = 'SwapWithActive',
+    },
+  },
 }
 
 config.unix_domains = {
