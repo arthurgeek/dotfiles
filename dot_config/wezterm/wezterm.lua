@@ -15,6 +15,7 @@ config.font_size = 18.0
 config.freetype_load_target = 'HorizontalLcd'
 
 config.window_decorations = 'RESIZE'
+config.adjust_window_size_when_changing_font_size = false
 
 config.switch_to_last_active_tab_when_closing_tab = true
 
