@@ -34,6 +34,12 @@ config.window_padding = {
 
 local act = wezterm.action
 
+config.leader = {
+  mods = 'CTRL',
+  key = 'Space',
+  timeout_milliseconds = 1000,
+}
+
 config.keys = {
   {
     key = 'k',
