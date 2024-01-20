@@ -42,13 +42,14 @@ config.leader = {
 
 config.keys = {
   {
-    key = 'k',
     mods = 'CMD',
+    key = 'k',
     action = act.ClearScrollback 'ScrollbackAndViewport',
   },
+  -- splitting
   {
-    key = '?',
-    mods = 'CTRL|SHIFT',
+    mods = 'LEADER',
+    key = '-',
     action = act.SplitVertical { domain = 'CurrentPaneDomain' },
   },
 }
