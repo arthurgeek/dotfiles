@@ -16,12 +16,10 @@ set EXA_STANDARD_OPTIONS --group --git --header --group-directories-first --icon
 set EXA_L_OPTIONS $EXA_STANDARD_OPTIONS
 set EXA_LT_OPTIONS --long --tree --level
 
-if status is-interactive
-    eval (/opt/homebrew/bin/brew shellenv)
-end
 
 fish_config theme choose "Catppuccin Mocha"
 
+/opt/homebrew/bin/brew shellenv | source
 direnv hook fish | source
 starship init fish | source
 zoxide init fish | source
