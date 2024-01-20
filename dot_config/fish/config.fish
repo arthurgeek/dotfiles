@@ -31,3 +31,4 @@ abbr --global k kubectl
 abbr --global vim nvim
 abbr --global vi nvim
 abbr --global ls l
+abbr --global vimdiff nvim -d
