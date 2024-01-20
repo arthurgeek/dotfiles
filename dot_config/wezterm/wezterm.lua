@@ -52,6 +52,11 @@ config.keys = {
     key = '-',
     action = act.SplitVertical { domain = 'CurrentPaneDomain' },
   },
+  {
+    mods = 'LEADER',
+    key = '=',
+    action = act.SplitHorizontal { domain = 'CurrentPaneDomain' },
+  },
 }
 
 config.unix_domains = {
