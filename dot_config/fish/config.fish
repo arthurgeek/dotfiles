@@ -29,7 +29,7 @@ fish_config theme choose "Catppuccin Mocha"
 /opt/homebrew/bin/brew shellenv | source
 direnv hook fish | source
 starship init fish | source
-zoxide init fish | source
+zoxide init fish --cmd cd | source
 thefuck --alias | source
 chezmoi completion fish | source
 wezterm shell-completion --shell fish | source
