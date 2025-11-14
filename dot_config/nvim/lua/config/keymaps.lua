@@ -4,6 +4,3 @@
 
 -- save keystrokes, so we don't need to press the Shift key
 vim.keymap.set('n', ';', ':', { noremap = true })
-
--- remap Y to Y as normal vim
-vim.keymap.set('n', 'Y', 'Y', { noremap = true })
