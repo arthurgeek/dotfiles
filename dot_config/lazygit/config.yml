@@ -1,13 +1,14 @@
 gui:
   nerdFontsVersion: "3"
 git:
-  paging:
-    pager: delta --features 'default decorations' --paging=never
+  pagers:
+    - pager: delta --features 'default decorations' --paging=never
   branchLogCmd: "git log --color=always {{branchName}} --"
-  allBranchesLogCmd: "git log --all --color=always"
   commit:
     signOff: true
   parseEmoji: true
+  allBranchesLogCmds:
+    - git log --all --color=always
 os:
   open: "open {{filename}}"
   editPreset: "nvim-remote"
