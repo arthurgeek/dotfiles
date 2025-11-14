@@ -1,0 +1,7 @@
+#!{{ lookPath "fish" }}
+
+{{ if eq .personal true -}}
+echo "⬛️ Enabling pnpm"
+
+corepack enable pnpm
+{{- end -}}
