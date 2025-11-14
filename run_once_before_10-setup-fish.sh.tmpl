@@ -1,4 +1,8 @@
-#!{{ lookPath "fish" }}
+#!{{ lookPath "bash" }}
+
+echo "🐟 Installing fish"
+
+brew install fish
 
 echo "🐟 Setting up Fish"
 
@@ -8,9 +12,6 @@ cat /etc/shells | grep -vzq "/opt/homebrew/bin/fish" \
 
 # Set fish as the default shell
 if string match -v '*fish' $SHELL
+then
   chsh -s /opt/homebrew/bin/fish
-end
-
-# Install fisher
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source \
-  && fisher install jorgebucaran/fisher
+fi
