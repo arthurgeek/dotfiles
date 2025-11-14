@@ -7,8 +7,6 @@ brew "bat"
 brew "fzf"
 brew "eza"
 brew "nvim"
-brew "rustup-init"
-brew "deno"
 brew "fish"
 brew "zoxide"
 brew "direnv"
@@ -19,13 +17,19 @@ brew "ripgrep"
 brew "exiftool"
 brew "starship"
 brew "git-delta"
-brew "go-task/tap/go-task"
+brew "go-task"
+brew "ast-grep"
+brew "luajit"
+brew "luarocks"
+brew "lazygit"
+brew "lazydocker"
 
-cask "wezterm-nightly"
+cask "wezterm@nightly"
 cask "obsidian"
 cask "visual-studio-code"
-cask "homebrew/cask-fonts/font-fira-code"
-cask "docker", args: { appdir: "/Applications" }
+cask "font-fira-code"
+cask "claude-code"
+cask "docker-desktop", args: { appdir: "/Applications" }
 cask "raycast", args: { appdir: "/Applications" }
 cask "spotify", args: { appdir: "/Applications" }
 cask "1password", args: { appdir: "/Applications" }
@@ -34,6 +38,12 @@ cask "google-chrome", args: { appdir: "/Applications" }
 {{ if eq .personal true -}}
 brew "age"
 brew "sops"
+brew "rustup-init"
+brew "node"
+brew "corepack"
+brew "deno"
+tap "oven-sh/bun"
+brew "oven-sh/bun/bun"
 
 cask "discord"
 cask "nordvpn"
@@ -41,9 +51,9 @@ cask "whatsapp"
 
 # Stuff for home k8s cluster
 brew "helm"
-brew "ansible"
 brew "kubecolor"
 brew "kustomize"
 brew "kubernetes-cli"
+tap "fluxcd/tap"
 brew "fluxcd/tap/flux"
 {{- end -}}
