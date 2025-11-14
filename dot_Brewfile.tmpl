@@ -19,27 +19,21 @@ brew "ripgrep"
 brew "exiftool"
 brew "starship"
 brew "git-delta"
-brew "bitwarden-cli"
 brew "go-task/tap/go-task"
 
 cask "wezterm-nightly"
-cask "slack"
 cask "obsidian"
 cask "visual-studio-code"
 cask "homebrew/cask-fonts/font-fira-code"
 cask "docker", args: { appdir: "/Applications" }
 cask "raycast", args: { appdir: "/Applications" }
 cask "spotify", args: { appdir: "/Applications" }
-cask "bitwarden", args: { appdir: "/Applications" }
+cask "1password", args: { appdir: "/Applications" }
 cask "google-chrome", args: { appdir: "/Applications" }
 
 {{ if eq .personal true -}}
 brew "age"
 brew "sops"
-brew "flyctl"
-brew "python@3.11"
-
-brew "cargo-nextest"
 
 cask "discord"
 cask "nordvpn"
@@ -48,13 +42,8 @@ cask "whatsapp"
 # Stuff for home k8s cluster
 brew "helm"
 brew "ansible"
-brew "kyverno"
 brew "kubecolor"
-brew "terraform"
 brew "kustomize"
-brew "cilium-cli"
 brew "kubernetes-cli"
 brew "fluxcd/tap/flux"
-brew "derailed/k9s/k9s"
-brew "weaveworks/tap/gitops"
 {{- end -}}
