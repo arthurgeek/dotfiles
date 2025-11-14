@@ -71,6 +71,7 @@ config.keys = {
       mode = 'SwapWithActive',
     },
   },
+  { key = 'Enter', mods = 'SHIFT', action = wezterm.action { SendString = '\x1b\r' } },
 }
 
 config.unix_domains = {
